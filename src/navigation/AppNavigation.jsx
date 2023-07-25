@@ -3,6 +3,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import RepositoryList from "../screens/RepositoryList";
 import Home from "../screens/Home";
 import About from "../screens/About";
+// import SignIn from "../screens/SignIn";
+import LoginPage from "../pages/Login";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +17,8 @@ export function AppNavigation() {
             tabBarIcon: ({ color, size }) =>
                 screenOptions(route, color, size),
         })}>
-            <Tab.Screen name='list' component={RepositoryList} />
+            <Tab.Screen name='Sign In' component={LoginPage} />
+            <Tab.Screen name='Repositories' component={RepositoryList} />
             <Tab.Screen name='home' component={Home} />
             <Tab.Screen name='about us' component={About} />
         </Tab.Navigator>
@@ -27,7 +30,7 @@ function screenOptions(route, color, size) {
 
     let iconName;
 
-    if (route.name === "list") {
+    if (route.name === "Repositories") {
         iconName = "compass-outline";
     }
 
@@ -37,6 +40,10 @@ function screenOptions(route, color, size) {
 
     if (route.name === "about us") {
         iconName = "heart-outline";
+    }
+
+    if (route.name === "Sign In") {
+        iconName = "person-outline";
     }
 
     return (
